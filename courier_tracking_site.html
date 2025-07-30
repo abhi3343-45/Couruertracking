@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboXpress Logistics - Track Your Shipment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0d47a1;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .results {
+      display: none;
+      text-align: left;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    th {
+      background: #e3f2fd;
+    }
+    .image-container {
+      margin-top: 20px;
+    }
+    .image-container img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="inputPage">
+    <h1>TurboXpress Logistics</h1>
+    <p>Enter your tracking ID to track your order</p>
+    <input type="text" id="trackingInput" placeholder="Enter Tracking ID">
+    <br />
+    <button onclick="showTracking()">Track</button>
+    <p id="errorMsg" class="error"></p>
+  </div>
+
+  <div class="container results" id="trackingResult">
+    <h1>TurboXpress Logistics</h1>
+    <h2>Tracking Details</h2>
+    <p><strong>Tracking ID:</strong> SUBH825</p>
+    <p><strong>Status:</strong> <span style="color:green">Not Delivered</span></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>31 Jul 2025, 09:00 AM</td>
+          <td>New Delhi, DL</td>
+          <td>Shipment Picked Up</td>
+        </tr>
+        <tr>
+          <td>01 Aug 2025, 02:00 PM</td>
+          <td>Agra, UP</td>
+          <td>Arrived at Hub</td>
+        </tr>
+        <tr>
+          <td>03 Aug 2025, 10:30 AM</td>
+          <td>Asansol, WB</td>
+          <td>In Transit</td>
+        </tr>
+        <tr>
+          <td>04 Aug 2025, 09:45 AM</td>
+          <td>Kolkata, WB</td>
+          <td>Out for Delivery</td>
+        </tr>
+        <tr>
+          <td>05 Aug 2025, 12:30 PM</td>
+          <td>Kolkata, WB</td>
+          <td>Delivered</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="image-container">
+      <h3>Delivery Photo</h3>
+      <img src="https://via.placeholder.com/550x300?text=Delivered+Package+Photo" alt="Delivery Photo">
+    </div>
+  </div>
+
+  <script>
+    function showTracking() {
+      const trackingId = document.getElementById("trackingInput").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+      if (trackingId === "SUBH825") {
+        document.getElementById("inputPage").style.display = "none";
+        document.getElementById("trackingResult").style.display = "block";
+      } else {
+        errorMsg.textContent = "Invalid Tracking ID. Please enter Correct tracking id.";
+      }
+    }
+  </script>
+</body>
+</html>
